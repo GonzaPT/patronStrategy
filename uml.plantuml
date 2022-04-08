@@ -1,0 +1,33 @@
+@startuml Strategy Patron
+
+mainStrategy -> secuenceContext
+primosSecuence -> mainStrategy
+fibonacciSecuence -> mainStrategy
+class mainStrategy{}
+
+secuenceContext *-> secuenceStrategy
+class secuenceContext{
+
+    - strategy: secuenceStrategy
+
+    + getStrategy()
+    + setStrategy()
+}
+
+interface secuenceStrategy{
+    + secuence(number);
+}
+
+class primosSecuence implements secuenceStrategy{
+    
+    + secuence(number)
+    + esPrimo(numero)
+
+}
+
+class fibonacciSecuence implements secuenceStrategy{
+
+    + secuence(number)
+}
+
+@enduml
